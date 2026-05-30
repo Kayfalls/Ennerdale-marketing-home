@@ -771,3 +771,325 @@ small{
   }
 
 }
+
+/* ================= GLOBAL ENHANCEMENTS ================= */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ================= WHATSAPP ENQUIRY MODAL ================= */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 28px;
+  width: 100%;
+  max-width: 580px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  position: relative;
+  transform: scale(0.92) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-overlay.active .modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.05);
+  border: none;
+  color: #111;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: #111;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-header {
+  padding: 30px 30px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.modal-header i {
+  font-size: 22px;
+  color: #25D366;
+  background: rgba(37, 211, 102, 0.12);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+}
+
+.modal-body {
+  padding: 24px 30px;
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+/* Modal Product Preview */
+.modal-product-preview {
+  display: flex;
+  gap: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.modal-product-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.modal-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal-product-info h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+}
+
+.modal-product-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #25D366;
+}
+
+.modal-product-meta {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.modal-product-badge {
+  background: rgba(37, 211, 102, 0.1);
+  color: #1ebe5d;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 50px;
+}
+
+.modal-product-location {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Message Composer */
+.modal-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #444;
+}
+
+.modal-composer textarea {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  resize: none;
+  background: white;
+  color: #111;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.modal-composer textarea:focus {
+  border-color: #25D366;
+  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.15);
+}
+
+.modal-hint {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+  background: rgba(0, 0, 0, 0.03);
+  padding: 12px 16px;
+  border-radius: 12px;
+}
+
+.modal-hint i {
+  color: #25D366;
+  font-size: 14px;
+  margin-top: 2px;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 20px 30px 30px;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.modal-send-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+}
+
+.modal-send-btn:hover {
+  background: #1ebe5d;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+}
+
+.modal-send-btn:active {
+  transform: translateY(0);
+}
+
+/* ================= PRODUCT LINK GLOW HIGHLIGHT ================= */
+
+.highlight-product {
+  animation: highlightPulse 2s ease-in-out 3 alternate;
+  position: relative;
+}
+
+@keyframes highlightPulse {
+  0% {
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(37, 211, 102, 0.4), 0 15px 45px rgba(37, 211, 102, 0.2);
+    transform: scale(1.03);
+    border-color: #25D366;
+  }
+  100% {
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    transform: scale(1);
+  }
+}
+
+/* ================= MOBILE ADAPTABILITY FOR MODAL ================= */
+@media (max-width: 580px) {
+  .modal-overlay {
+    padding: 10px;
+  }
+
+  .modal-card {
+    border-radius: 20px;
+    max-height: 90vh;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  .modal-body {
+    padding: 16px 20px;
+  }
+
+  .modal-product-preview {
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .modal-product-img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .modal-product-info h3 {
+    font-size: 15px;
+  }
+
+  .modal-product-price {
+    font-size: 16px;
+  }
+
+  .modal-footer {
+    padding: 16px 20px 20px;
+  }
+}

@@ -233,11 +233,12 @@
 
       <!-- PRODUCT 1 -->
 
-      <div class="product-card">
+      <div class="product-card" id="nike-air-sneakers" data-title="Nike Air Sneakers" data-price="R1299" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200" data-category="Fashion">
 
         <img
           src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200"
           class="product-image"
+          alt="Nike Air Sneakers"
         >
 
         <div class="product-content">
@@ -281,9 +282,8 @@
           </div>
 
           <a
-            href="https://wa.me/27123456789"
-            target="_blank"
-            class="whatsapp-btn"
+            href="#"
+            class="whatsapp-btn enquire-btn"
           >
 
             <i class="fa-brands fa-whatsapp"></i>
@@ -298,11 +298,12 @@
 
       <!-- PRODUCT 2 -->
 
-      <div class="product-card">
+      <div class="product-card" id="iphone-14-pro" data-title="iPhone 14 Pro" data-price="R15999" data-image="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200" data-category="Electronics">
 
         <img
           src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200"
           class="product-image"
+          alt="iPhone 14 Pro"
         >
 
         <div class="product-content">
@@ -346,9 +347,8 @@
           </div>
 
           <a
-            href="https://wa.me/27123456789"
-            target="_blank"
-            class="whatsapp-btn"
+            href="#"
+            class="whatsapp-btn enquire-btn"
           >
 
             <i class="fa-brands fa-whatsapp"></i>
@@ -363,11 +363,12 @@
 
       <!-- PRODUCT 3 -->
 
-      <div class="product-card">
+      <div class="product-card" id="wireless-headphones" data-title="Wireless Headphones" data-price="R799" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200" data-category="Gadgets">
 
         <img
           src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200"
           class="product-image"
+          alt="Wireless Headphones"
         >
 
         <div class="product-content">
@@ -411,9 +412,8 @@
           </div>
 
           <a
-            href="https://wa.me/27123456789"
-            target="_blank"
-            class="whatsapp-btn"
+            href="#"
+            class="whatsapp-btn enquire-btn"
           >
 
             <i class="fa-brands fa-whatsapp"></i>
@@ -428,11 +428,12 @@
 
       <!-- PRODUCT 4 -->
 
-      <div class="product-card">
+      <div class="product-card" id="running-shoes" data-title="Running Shoes" data-price="R950" data-image="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200" data-category="Sports">
 
         <img
           src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200"
           class="product-image"
+          alt="Running Shoes"
         >
 
         <div class="product-content">
@@ -476,9 +477,8 @@
           </div>
 
           <a
-            href="https://wa.me/27123456789"
-            target="_blank"
-            class="whatsapp-btn"
+            href="#"
+            class="whatsapp-btn enquire-btn"
           >
 
             <i class="fa-brands fa-whatsapp"></i>
@@ -493,11 +493,12 @@
 
       <!-- PRODUCT 5 -->
 
-      <div class="product-card">
+      <div class="product-card" id="luxury-watch" data-title="Luxury Watch" data-price="R2499" data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200" data-category="Accessories">
 
         <img
           src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200"
           class="product-image"
+          alt="Luxury Watch"
         >
 
         <div class="product-content">
@@ -541,9 +542,8 @@
           </div>
 
           <a
-            href="https://wa.me/27123456789"
-            target="_blank"
-            class="whatsapp-btn"
+            href="#"
+            class="whatsapp-btn enquire-btn"
           >
 
             <i class="fa-brands fa-whatsapp"></i>
@@ -558,11 +558,12 @@
 
       <!-- PRODUCT 6 -->
 
-      <div class="product-card">
+      <div class="product-card" id="modern-chair" data-title="Modern Chair" data-price="R1800" data-image="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200" data-category="Furniture">
 
         <img
           src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200"
           class="product-image"
+          alt="Modern Chair"
         >
 
         <div class="product-content">
@@ -606,9 +607,8 @@
           </div>
 
           <a
-            href="https://wa.me/27123456789"
-            target="_blank"
-            class="whatsapp-btn"
+            href="#"
+            class="whatsapp-btn enquire-btn"
           >
 
             <i class="fa-brands fa-whatsapp"></i>
@@ -681,5 +681,196 @@
 
   </footer>
 
+  <!-- WHATSAPP ENQUIRY MODAL -->
+  <div id="enquiryModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <div class="modal-header">
+        <i class="fa-solid fa-comments"></i>
+        <h2>Send Message to Seller</h2>
+      </div>
+      
+      <div class="modal-body">
+        <!-- Product Quick Preview -->
+        <div class="modal-product-preview">
+          <img src="" id="modalProductImage" alt="" class="modal-product-img">
+          <div class="modal-product-info">
+            <h3 id="modalProductTitle">Product Title</h3>
+            <span class="modal-product-price" id="modalProductPrice">Price</span>
+            <div class="modal-product-meta">
+              <span class="modal-product-badge" id="modalProductBadge">Category</span>
+              <span class="modal-product-location">
+                <i class="fa-solid fa-location-dot"></i>
+                Ennerdale
+              </span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Composer Area -->
+        <div class="modal-composer">
+          <label for="modalMessageText" class="modal-label">Your Message:</label>
+          <textarea id="modalMessageText" rows="4" placeholder="Type your message here..."></textarea>
+          
+          <div class="modal-hint">
+            <i class="fa-solid fa-circle-info"></i>
+            <span>A shareable deep-link back to this specific product will be appended automatically. When clicked, it will bring the seller straight here.</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="modal-footer">
+        <button id="sendWhatsappBtn" class="modal-send-btn">
+          <i class="fa-brands fa-whatsapp"></i>
+          Send on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Config
+    const CONFIG = {
+      whatsappNumber: '27123456789', // Customize seller's countrycode + phone number here
+      defaultTemplate: "Hi! Is this still available? I'm interested in the [TITLE] ([PRICE])."
+    };
+
+    // DOM Elements
+    const enquiryModal = document.getElementById('enquiryModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const modalProductImage = document.getElementById('modalProductImage');
+    const modalProductTitle = document.getElementById('modalProductTitle');
+    const modalProductPrice = document.getElementById('modalProductPrice');
+    const modalProductBadge = document.getElementById('modalProductBadge');
+    const modalMessageText = document.getElementById('modalMessageText');
+    const sendWhatsappBtn = document.getElementById('sendWhatsappBtn');
+
+    let activeProductData = null;
+
+    // Open Modal
+    function openEnquiryModal(productData) {
+      activeProductData = productData;
+      
+      modalProductImage.src = productData.image;
+      modalProductImage.alt = productData.title;
+      modalProductTitle.textContent = productData.title;
+      modalProductPrice.textContent = productData.price;
+      modalProductBadge.textContent = productData.category;
+      
+      // Auto-populate message composer
+      const customMsg = CONFIG.defaultTemplate
+        .replace('[TITLE]', productData.title)
+        .replace('[PRICE]', productData.price);
+        
+      modalMessageText.value = customMsg;
+      
+      // Show modal & prevent background scroll
+      enquiryModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      
+      // Focus the textarea
+      setTimeout(() => {
+        modalMessageText.focus();
+        modalMessageText.setSelectionRange(modalMessageText.value.length, modalMessageText.value.length);
+      }, 100);
+    }
+
+    // Close Modal
+    function closeEnquiryModal() {
+      enquiryModal.classList.remove('active');
+      document.body.style.overflow = '';
+      activeProductData = null;
+    }
+
+    // Bind Button Clicks
+    document.querySelectorAll('.enquire-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const card = this.closest('.product-card');
+        if (card) {
+          const productData = {
+            id: card.id,
+            title: card.getAttribute('data-title'),
+            price: card.getAttribute('data-price'),
+            image: card.getAttribute('data-image'),
+            category: card.getAttribute('data-category')
+          };
+          openEnquiryModal(productData);
+        }
+      });
+    });
+
+    // Close Actions
+    closeModalBtn.addEventListener('click', closeEnquiryModal);
+    enquiryModal.addEventListener('click', function(e) {
+      if (e.target === enquiryModal) {
+        closeEnquiryModal();
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && enquiryModal.classList.contains('active')) {
+        closeEnquiryModal();
+      }
+    });
+
+    // Send WhatsApp Message
+    sendWhatsappBtn.addEventListener('click', function() {
+      if (!activeProductData) return;
+      
+      const customMessage = modalMessageText.value.trim();
+      
+      // Construct deep link
+      const baseLink = window.location.origin + window.location.pathname;
+      const productLink = baseLink + '#' + activeProductData.id;
+      
+      // Format message text
+      const fullText = `${customMessage}\n\nProduct Link: ${productLink}`;
+      
+      // Encode
+      const encodedText = encodeURIComponent(fullText);
+      const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedText}`;
+      
+      // Open in a new tab
+      window.open(whatsappUrl, '_blank');
+      
+      // Close modal
+      closeEnquiryModal();
+    });
+
+    // Scroll to & highlight product based on URL hash
+    function checkHashAndHighlight() {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetId = decodeURIComponent(hash.substring(1));
+        const targetElement = document.getElementById(targetId);
+        if (targetElement && targetElement.classList.contains('product-card')) {
+          // Subtle timeout to ensure page rendering is stable
+          setTimeout(() => {
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Clear highlights from other cards
+            document.querySelectorAll('.product-card').forEach(card => {
+              card.classList.remove('highlight-product');
+            });
+            
+            // Add premium pulse highlight class
+            targetElement.classList.add('highlight-product');
+            
+            // Fade-out highlight after 5 seconds
+            setTimeout(() => {
+              targetElement.classList.remove('highlight-product');
+            }, 5000);
+          }, 300);
+        }
+      }
+    }
+
+    // Trigger hash highlights
+    window.addEventListener('load', checkHashAndHighlight);
+    window.addEventListener('hashchange', checkHashAndHighlight);
+  </script>
 </body>
 </html>
