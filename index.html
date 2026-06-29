@@ -17,6 +17,19 @@
   />
 
   <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* Typing indicator dots */
+    .typing-dot {
+      width: 7px; height: 7px;
+      background: #25D366;
+      border-radius: 50%;
+      animation: typingBounce 0.8s infinite alternate;
+    }
+    @keyframes typingBounce {
+      from { transform: translateY(0); opacity: 0.5; }
+      to   { transform: translateY(-5px); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
 
@@ -822,9 +835,9 @@
         Start Shopping
       </a>
 
-      <a href="upload.html" class="hero-btn secondary-btn">Upload Product</a>
+      <a href="upload.html" class="cta-btn">
+        Upload Product
       </a>
-
     </div>
 
   </div>
@@ -933,6 +946,8 @@
       <span>Pets</span>
     </div>
 
+
+
     <div class="category-card">
       <i class="fa-solid fa-book"></i>
       <span>Books</span>
@@ -948,399 +963,12 @@
 </section>
 
   <section class="products-section">
-
     <div class="section-title">
-
       <i class="fa-solid fa-fire"></i>
-
       <h2>Trending Products</h2>
-
     </div>
-
-    <div class="products-grid">
-
-      <div class="product-card" id="nike-air-sneakers" data-title="Nike Air Sneakers" data-price="R1299" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200" data-category="Fashion">
-
-        <img
-          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=1200"
-          class="product-image"
-          alt="Nike Air Sneakers"
-        >
-
-        <div class="product-content">
-
-          <div class="top-row">
-
-            <div>
-
-              <div class="product-title">
-                Nike Air Sneakers
-              </div>
-
-              <div class="product-price">
-                R1299
-              </div>
-
-            </div>
-
-            <div class="category-badge">
-              Fashion
-            </div>
-
-          </div>
-
-          <div class="product-description">
-            Stylish modern sneakers perfect for daily wear and comfort.
-          </div>
-
-          <div class="info-row">
-
-            <div class="info-item">
-              <i class="fa-solid fa-location-dot"></i>
-              Harrismith
-            </div>
-
-            <div class="info-item">
-              <i class="fa-solid fa-star"></i>
-              Featured
-            </div>
-
-          </div>
-
-          <a
-            href="#"
-            class="whatsapp-btn enquire-btn"
-          >
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            Order on WhatsApp
-
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="product-card" id="iphone-14-pro" data-title="iPhone 14 Pro" data-price="R15999" data-image="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200" data-category="Electronics">
-
-        <img
-          src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200"
-          class="product-image"
-          alt="iPhone 14 Pro"
-        >
-
-        <div class="product-content">
-
-          <div class="top-row">
-
-            <div>
-
-              <div class="product-title">
-                iPhone 14 Pro
-              </div>
-
-              <div class="product-price">
-                R15999
-              </div>
-
-            </div>
-
-            <div class="category-badge">
-              Electronics
-            </div>
-
-          </div>
-
-          <div class="product-description">
-            Premium smartphone with excellent camera and battery life.
-          </div>
-
-          <div class="info-row">
-
-            <div class="info-item">
-              <i class="fa-solid fa-location-dot"></i>
-              Harrismith 
-            </div>
-
-            <div class="info-item">
-              <i class="fa-solid fa-bolt"></i>
-              Hot Deal
-            </div>
-
-          </div>
-
-          <a
-            href="#"
-            class="whatsapp-btn enquire-btn"
-          >
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            Order on WhatsApp
-
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="product-card" id="wireless-headphones" data-title="Wireless Headphones" data-price="R799" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200" data-category="Gadgets">
-
-        <img
-          src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200"
-          class="product-image"
-          alt="Wireless Headphones"
-        >
-
-        <div class="product-content">
-
-          <div class="top-row">
-
-            <div>
-
-              <div class="product-title">
-                Wireless Headphones
-              </div>
-
-              <div class="product-price">
-                R799
-              </div>
-
-            </div>
-
-            <div class="category-badge">
-              Gadgets
-            </div>
-
-          </div>
-
-          <div class="product-description">
-            Crystal clear sound with deep bass and long battery life.
-          </div>
-
-          <div class="info-row">
-
-            <div class="info-item">
-              <i class="fa-solid fa-location-dot"></i>
-              Harrismith 
-            </div>
-
-            <div class="info-item">
-              <i class="fa-solid fa-heart"></i>
-              Popular
-            </div>
-
-          </div>
-
-          <a
-            href="#"
-            class="whatsapp-btn enquire-btn"
-          >
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            Order on WhatsApp
-
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="product-card" id="running-shoes" data-title="Running Shoes" data-price="R950" data-image="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200" data-category="Sports">
-
-        <img
-          src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?q=80&w=1200"
-          class="product-image"
-          alt="Running Shoes"
-        >
-
-        <div class="product-content">
-
-          <div class="top-row">
-
-            <div>
-
-              <div class="product-title">
-                Running Shoes
-              </div>
-
-              <div class="product-price">
-                R950
-              </div>
-
-            </div>
-
-            <div class="category-badge">
-              Sports
-            </div>
-
-          </div>
-
-          <div class="product-description">
-            Lightweight performance shoes designed for maximum comfort.
-          </div>
-
-          <div class="info-row">
-
-            <div class="info-item">
-              <i class="fa-solid fa-location-dot"></i>
-              Harrismith 
-            </div>
-
-            <div class="info-item">
-              <i class="fa-solid fa-fire"></i>
-              Trending
-            </div>
-
-          </div>
-
-          <a
-            href="#"
-            class="whatsapp-btn enquire-btn"
-          >
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            Order on WhatsApp
-
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="product-card" id="luxury-watch" data-title="Luxury Watch" data-price="R2499" data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200" data-category="Accessories">
-
-        <img
-          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200"
-          class="product-image"
-          alt="Luxury Watch"
-        >
-
-        <div class="product-content">
-
-          <div class="top-row">
-
-            <div>
-
-              <div class="product-title">
-                Luxury Watch
-              </div>
-
-              <div class="product-price">
-                R2499
-              </div>
-
-            </div>
-
-            <div class="category-badge">
-              Accessories
-            </div>
-
-          </div>
-
-          <div class="product-description">
-            Elegant watch design perfect for casual and formal wear.
-          </div>
-
-          <div class="info-row">
-
-            <div class="info-item">
-              <i class="fa-solid fa-location-dot"></i>
-              Harrismith 
-            </div>
-
-            <div class="info-item">
-              <i class="fa-solid fa-gem"></i>
-              Premium
-            </div>
-
-          </div>
-
-          <a
-            href="#"
-            class="whatsapp-btn enquire-btn"
-          >
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            Order on WhatsApp
-
-          </a>
-
-        </div>
-
-      </div>
-
-      <div class="product-card" id="modern-chair" data-title="Modern Chair" data-price="R1800" data-image="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200" data-category="Furniture">
-
-        <img
-          src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200"
-          class="product-image"
-          alt="Modern Chair"
-        >
-
-        <div class="product-content">
-
-          <div class="top-row">
-
-            <div>
-
-              <div class="product-title">
-                Modern Chair
-              </div>
-
-              <div class="product-price">
-                R1800
-              </div>
-
-            </div>
-
-            <div class="category-badge">
-              Furniture
-            </div>
-
-          </div>
-
-          <div class="product-description">
-            Modern comfortable chair with elegant minimalist design.
-          </div>
-
-          <div class="info-row">
-
-            <div class="info-item">
-              <i class="fa-solid fa-location-dot"></i>
-              Harrismith 
-            </div>
-
-            <div class="info-item">
-              <i class="fa-solid fa-couch"></i>
-              New
-            </div>
-
-          </div>
-
-          <a
-            href="#"
-            class="whatsapp-btn enquire-btn"
-          >
-
-            <i class="fa-brands fa-whatsapp"></i>
-
-            Order on WhatsApp
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
+    <div class="products-grid" id="dynamicProductsGrid"></div>
   </section>
-
   <section class="cta-section">
 
     <h2>
@@ -1480,213 +1108,362 @@
   </div>
 
 
-  <script>
-    // Config
-    const CONFIG = {
-      whatsappNumber: '27123456789', // Customize seller's countrycode + phone number here
-      defaultTemplate: "Hi! Is this still available? I'm interested in the [TITLE] ([PRICE])."
+  <script type="module">
+
+    // ── CONFIGURATION ───────────────────────────────────────────
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+  const SUPABASE_URL = 'https://lvdvjymuvcpvkbdgikkc.supabase.co'
+  const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2ZHZqeW11dmNwdmtiZGdpa2tjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxOTI5MjMsImV4cCI6MjA5Nzc2ODkyM30.SChOKdMbWIP27_n-diBDioXKQh2whtdCbbS_fHmW2_U'
+  const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
+
+  // ── CONFIG & DOM ELEMENTS ────────────────────────────────
+  const CONFIG = {
+    whatsappNumber: '27123456789', // Default group contact — overridden per listing if seller_whatsapp is set
+    defaultTemplate: "Hi! Is this still available? I'm interested in the [TITLE] ([PRICE]).",
+    aiChatEndpoint: `${SUPABASE_URL}/functions/v1/ai-chat`,
+  };
+
+  const enquiryModal = document.getElementById('enquiryModal');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const modalProductImage = document.getElementById('modalProductImage');
+  const modalProductTitle = document.getElementById('modalProductTitle');
+  const modalProductPrice = document.getElementById('modalProductPrice');
+  const modalProductBadge = document.getElementById('modalProductBadge');
+  const modalMessageText = document.getElementById('modalMessageText');
+  const sendWhatsappBtn = document.getElementById('sendWhatsappBtn');
+
+  let activeProductData = null;
+
+  // 3. DYNAMICALLY LOAD AND RENDER LISTINGS
+  async function loadLiveListings() {
+    const { data: listings, error } = await supabase
+      .from('listings')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error("Error drawing products:", error.message);
+      return;
+    }
+
+    const container = document.getElementById('dynamicProductsGrid');
+    container.innerHTML = ''; // Wipe old placeholder structural data
+
+    listings.forEach(item => {
+      const cardHTML = `
+        <div class="product-card" id="${item.id}" 
+          data-title="${item.title}" 
+          data-price="${item.price}" 
+          data-image="${item.image_url || ''}" 
+          data-category="${item.category}"
+          data-whatsapp="${item.seller_whatsapp || CONFIG.whatsappNumber}">
+          <img src="${item.image_url || 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&auto=format&fit=crop'}" class="product-image" alt="${item.title}" loading="lazy">
+          <div class="product-content">
+            <div class="top-row">
+              <div>
+                <div class="product-title">${item.title}</div>
+                <div class="product-price">${item.price}</div>
+              </div>
+              <div class="category-badge">${item.category}</div>
+            </div>
+            <div class="product-description">${item.description}</div>
+            <div class="info-row">
+              <div class="info-item"><i class="fa-solid fa-location-dot"></i> Ennerdale</div>
+              <div class="info-item"><i class="fa-solid fa-user"></i> Community Seller</div>
+            </div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 15px;">
+              <a href="#" class="whatsapp-btn enquire-btn" style="flex: 3; display: flex; align-items: center; justify-content: center; text-decoration: none;">
+                <i class="fa-brands fa-whatsapp"></i> Order
+              </a>
+              <button class="secondary-btn share-btn" style="flex: 1; padding: 12px; border-radius: 12px; border: none; cursor: pointer; background: rgba(0,0,0,0.05); color: #111; transition: 0.3s;">
+                <i class="fa-solid fa-share-nodes"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      container.insertAdjacentHTML('beforeend', cardHTML);
+    });
+
+    // Check if a deep-linked product needs highlighting after render
+    checkHashAndHighlight();
+  }
+
+  // 4. EVENT DELEGATION FOR CLICKS (Handles dynamically rendered content flawlessly)
+  document.getElementById('dynamicProductsGrid').addEventListener('click', function(e) {
+    // Find the closest target elements regardless of icon clicks inside them
+    const enquireBtn = e.target.closest('.enquire-btn');
+    const shareBtn = e.target.closest('.share-btn');
+    const card = e.target.closest('.product-card');
+
+    if (!card) return;
+
+    const productData = {
+      id: card.id,
+      title: card.getAttribute('data-title'),
+      price: card.getAttribute('data-price'),
+      image: card.getAttribute('data-image'),
+      category: card.getAttribute('data-category'),
+      whatsapp: card.getAttribute('data-whatsapp') || CONFIG.whatsappNumber,
+      description: card.querySelector('.product-description').textContent.trim()
     };
 
-    // DOM Elements
-    const enquiryModal = document.getElementById('enquiryModal');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const modalProductImage = document.getElementById('modalProductImage');
-    const modalProductTitle = document.getElementById('modalProductTitle');
-    const modalProductPrice = document.getElementById('modalProductPrice');
-    const modalProductBadge = document.getElementById('modalProductBadge');
-    const modalMessageText = document.getElementById('modalMessageText');
-    const sendWhatsappBtn = document.getElementById('sendWhatsappBtn');
-
-    let activeProductData = null;
-
-    // Open Modal
-    function openEnquiryModal(productData) {
-      activeProductData = productData;
-      
-      modalProductImage.src = productData.image;
-      modalProductImage.alt = productData.title;
-      modalProductTitle.textContent = productData.title;
-      modalProductPrice.textContent = productData.price;
-      modalProductBadge.textContent = productData.category;
-      
-      // Auto-populate message composer
-      const customMsg = CONFIG.defaultTemplate
-        .replace('[TITLE]', productData.title)
-        .replace('[PRICE]', productData.price);
-        
-      modalMessageText.value = customMsg;
-      
-      // Show modal & prevent background scroll
-      enquiryModal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      
-      // Focus the textarea
-      setTimeout(() => {
-        modalMessageText.focus();
-        modalMessageText.setSelectionRange(modalMessageText.value.length, modalMessageText.value.length);
-      }, 100);
+    // Handle Order/Enquiry Modal Trigger
+    if (enquireBtn) {
+      e.preventDefault();
+      openEnquiryModal(productData);
     }
 
-    // Close Modal
-    function closeEnquiryModal() {
-      enquiryModal.classList.remove('active');
-      document.body.style.overflow = '';
-      activeProductData = null;
+    // Handle Property24-Style Smart Sharing Text Copy
+    if (shareBtn) {
+      e.preventDefault();
+      triggerSmartShare(productData);
+    }
+  });
+
+  // 5. MODAL INTERACTION LOGIC
+  function openEnquiryModal(productData) {
+    activeProductData = productData;
+    
+    modalProductImage.src = productData.image;
+    modalProductImage.alt = productData.title;
+    modalProductTitle.textContent = productData.title;
+    modalProductPrice.textContent = productData.price;
+    modalProductBadge.textContent = productData.category;
+    
+    const customMsg = CONFIG.defaultTemplate
+      .replace('[TITLE]', productData.title)
+      .replace('[PRICE]', productData.price);
+      
+    modalMessageText.value = customMsg;
+    
+    enquiryModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    
+    setTimeout(() => {
+      modalMessageText.focus();
+      modalMessageText.setSelectionRange(modalMessageText.value.length, modalMessageText.value.length);
+    }, 100);
+  }
+
+  function closeEnquiryModal() {
+    enquiryModal.classList.remove('active');
+    document.body.style.overflow = '';
+    activeProductData = null;
+  }
+
+  closeModalBtn.addEventListener('click', closeEnquiryModal);
+  enquiryModal.addEventListener('click', (e) => { if (e.target === enquiryModal) closeEnquiryModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && enquiryModal.classList.contains('active')) closeEnquiryModal(); });
+
+  sendWhatsappBtn.addEventListener('click', function() {
+    if (!activeProductData) return;
+    
+    const customMessage = modalMessageText.value.trim();
+    const baseLink = window.location.origin + window.location.pathname;
+    const productLink = baseLink + '#' + activeProductData.id;
+    
+    const fullText = `${customMessage}\n\nProduct Link: ${productLink}`;
+    window.open(`https://wa.me/${activeProductData.whatsapp || CONFIG.whatsappNumber}?text=${encodeURIComponent(fullText)}`, '_blank');
+    closeEnquiryModal();
+  });
+
+  // 6. PROPERTY24-STYLE SMART MARKETING GENERATOR
+  function triggerSmartShare(product) {
+    // Generate highly persuasive, category-based marketing hooks dynamically
+    let contextHook = "Don't miss out on this fantastic offer available right now in our community!";
+    
+    const category = product.category.toLowerCase();
+    if (category.includes('fashion')) {
+      contextHook = "🔥 Upgrade your wardrobe! Clean, premium style addition available right now.";
+    } else if (category.includes('electronic') || category.includes('gaming')) {
+      contextHook = "⚡ Great tech deal! Perfect working condition and ready for collection.";
+    } else if (category.includes('property') || category.includes('furniture')) {
+      contextHook = "🏡 Excellent deal to level up your space. View full structural details below.";
+    } else if (category.includes('food')) {
+      contextHook = "🍽️ Freshly made and ready to enjoy! Support local culinary talent.";
+    } else if (category.includes('service')) {
+      contextHook = "💼 Reliable, highly recommended professional service operating right here.";
+    } else if (category.includes('pet')) {
+      contextHook = "🐾 Available now for local animal lovers. See specifics below.";
     }
 
-    // Bind Button Clicks
-    document.querySelectorAll('.enquire-btn').forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        const card = this.closest('.product-card');
-        if (card) {
-          const productData = {
-            id: card.id,
-            title: card.getAttribute('data-title'),
-            price: card.getAttribute('data-price'),
-            image: card.getAttribute('data-image'),
-            category: card.getAttribute('data-category')
-          };
-          openEnquiryModal(productData);
-        }
+    const baseLink = window.location.origin + window.location.pathname;
+    const deepLinkUrl = baseLink + '#' + product.id;
+
+    // Build out a cleanly structured, professional broadcast template
+    const textMessage = 
+      `📢 *JUST LISTED IN ENNERDALE* 📢\n\n` +
+      `📦 *Product:* ${product.title}\n` +
+      `💰 *Price:* ${product.price}\n` +
+      `🗂️ *Category:* ${product.category}\n\n` +
+      `${contextHook}\n\n` +
+      `📝 *Seller Notes:* _"${product.description}"_\n\n` +
+      `👇 *View High-Res Images & Contact Seller Directly:* 👇\n` +
+      `${deepLinkUrl}`;
+
+    // Direct dispatch to WhatsApp chat/group selection portal
+    window.open(`https://wa.me/?text=${encodeURIComponent(textMessage)}`, '_blank');
+  }
+
+  // 7. SCROLL & HIGHLIGHT DEEP LINK ANCHORS
+  function checkHashAndHighlight() {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = decodeURIComponent(hash.substring(1));
+      const targetElement = document.getElementById(targetId);
+      if (targetElement && targetElement.classList.contains('product-card')) {
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          document.querySelectorAll('.product-card').forEach(card => card.classList.remove('highlight-product'));
+          targetElement.classList.add('highlight-product');
+          
+          setTimeout(() => targetElement.classList.remove('highlight-product'), 5000);
+        }, 300);
+      }
+    }
+  }
+
+  // Initialize on load
+  window.addEventListener('hashchange', checkHashAndHighlight);
+  window.addEventListener('DOMContentLoaded', loadLiveListings);
+
+  // ═══════════════════════════════════════════════════════
+  // AI-POWERED CHATBOT — Ennerdale Marketing Assistant
+  // Calls the Supabase Edge Function → Claude claude-sonnet-4-6
+  // ═══════════════════════════════════════════════════════
+
+  const chatToggleBtn = document.getElementById('chatToggleBtn');
+  const chatWindow    = document.getElementById('chatWindow');
+  const closeChatBtn  = document.getElementById('closeChatBtn');
+  const chatInput     = document.getElementById('chatInput');
+  const sendChatBtn   = document.getElementById('sendChatBtn');
+  const chatBody      = document.getElementById('chatBody');
+  const chatBadge     = document.querySelector('.chat-badge');
+
+  let chatHistory     = []; // { role: 'user'|'assistant', content: string }
+  let chatIsOpen      = false;
+  let chatIsWaiting   = false;
+
+  // ── Open / Close Chat ──
+  function openChat() {
+    chatWindow.classList.add('active');
+    chatIsOpen = true;
+    chatBadge.style.display = 'none';
+    chatInput.focus();
+  }
+
+  function closeChat() {
+    chatWindow.classList.remove('active');
+    chatIsOpen = false;
+  }
+
+  chatToggleBtn.addEventListener('click', () => {
+    chatIsOpen ? closeChat() : openChat();
+  });
+
+  closeChatBtn.addEventListener('click', closeChat);
+
+  // ── Render a message bubble ──
+  function appendMessage(role, text) {
+    const wrapper = document.createElement('div');
+    wrapper.className = `chat-msg ${role}`;
+    wrapper.innerHTML = `<div class="msg-bubble">${escapeHtml(text)}</div>`;
+    chatBody.appendChild(wrapper);
+    chatBody.scrollTop = chatBody.scrollHeight;
+    return wrapper;
+  }
+
+  function escapeHtml(str) {
+    return str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/\n/g, '<br>');
+  }
+
+  // ── Typing indicator ──
+  function showTyping() {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'chat-msg bot';
+    wrapper.id = 'typingIndicator';
+    wrapper.innerHTML = `
+      <div class="msg-bubble" style="padding: 12px 18px;">
+        <span style="display:inline-flex;gap:5px;align-items:center">
+          <span class="typing-dot"></span>
+          <span class="typing-dot" style="animation-delay:0.15s"></span>
+          <span class="typing-dot" style="animation-delay:0.3s"></span>
+        </span>
+      </div>`;
+    chatBody.appendChild(wrapper);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function hideTyping() {
+    document.getElementById('typingIndicator')?.remove();
+  }
+
+  // ── Send message to AI ──
+  async function sendMessage() {
+    const text = chatInput.value.trim();
+    if (!text || chatIsWaiting) return;
+
+    chatInput.value = '';
+    chatIsWaiting = true;
+    sendChatBtn.disabled = true;
+
+    // Render user bubble
+    appendMessage('user', text);
+    chatHistory.push({ role: 'user', content: text });
+
+    // Show typing
+    showTyping();
+
+    try {
+      const response = await fetch(CONFIG.aiChatEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': `Bearer ${SUPABASE_KEY}`,
+        },
+        body: JSON.stringify({ messages: chatHistory }),
       });
-    });
 
-    // Close Actions
-    closeModalBtn.addEventListener('click', closeEnquiryModal);
-    enquiryModal.addEventListener('click', function(e) {
-      if (e.target === enquiryModal) {
-        closeEnquiryModal();
-      }
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && enquiryModal.classList.contains('active')) {
-        closeEnquiryModal();
-      }
-    });
+      hideTyping();
 
-    // Send WhatsApp Message
-    sendWhatsappBtn.addEventListener('click', function() {
-      if (!activeProductData) return;
-      
-      const customMessage = modalMessageText.value.trim();
-      
-      // Construct deep link
-      const baseLink = window.location.origin + window.location.pathname;
-      const productLink = baseLink + '#' + activeProductData.id;
-      
-      // Format message text
-      const fullText = `${customMessage}\n\nProduct Link: ${productLink}`;
-      
-      // Encode
-      const encodedText = encodeURIComponent(fullText);
-      const whatsappUrl = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodedText}`;
-      
-      // Open in a new tab
-      window.open(whatsappUrl, '_blank');
-      
-      // Close modal
-      closeEnquiryModal();
-    });
-
-    // Scroll to & highlight product based on URL hash
-    function checkHashAndHighlight() {
-      const hash = window.location.hash;
-      if (hash) {
-        const targetId = decodeURIComponent(hash.substring(1));
-        const targetElement = document.getElementById(targetId);
-        if (targetElement && targetElement.classList.contains('product-card')) {
-          // Subtle timeout to ensure page rendering is stable
-          setTimeout(() => {
-            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            
-            // Clear highlights from other cards
-            document.querySelectorAll('.product-card').forEach(card => {
-              card.classList.remove('highlight-product');
-            });
-            
-            // Add premium pulse highlight class
-            targetElement.classList.add('highlight-product');
-            
-            // Fade-out highlight after 5 seconds
-            setTimeout(() => {
-              targetElement.classList.remove('highlight-product');
-            }, 5000);
-          }, 300);
-        }
+      if (!response.ok) {
+        const errData = await response.json().catch(() => ({}));
+        throw new Error(errData.error || `HTTP ${response.status}`);
       }
+
+      const data  = await response.json();
+      const reply = data.response || 'Sorry, I could not generate a response right now.';
+
+      appendMessage('bot', reply);
+      chatHistory.push({ role: 'assistant', content: reply });
+
+    } catch (err) {
+      hideTyping();
+      appendMessage('bot', '⚠️ I\'m having trouble connecting right now. Please try again or use the Join Group button to reach us directly on WhatsApp.');
+      console.error('[AI Chat Error]', err);
+    } finally {
+      chatIsWaiting = false;
+      sendChatBtn.disabled = false;
+      chatInput.focus();
     }
+  }
 
-    // Trigger hash highlights
-    window.addEventListener('load', checkHashAndHighlight);
-    window.addEventListener('hashchange', checkHashAndHighlight);
-
-
-    // ================= FLOATING CHATBOT WIDGET LOGIC =================
-    const chatToggleBtn = document.getElementById('chatToggleBtn');
-    const chatWindow = document.getElementById('chatWindow');
-    const closeChatBtn = document.getElementById('closeChatBtn');
-    const chatBody = document.getElementById('chatBody');
-    const chatInput = document.getElementById('chatInput');
-    const sendChatBtn = document.getElementById('sendChatBtn');
-    const chatBadge = chatToggleBtn.querySelector('.chat-badge');
-
-    // Toggle window visibility
-    chatToggleBtn.addEventListener('click', () => {
-      chatWindow.classList.toggle('active');
-      if (chatBadge) chatBadge.remove(); // Remove alert badge once read
-    });
-
-    closeChatBtn.addEventListener('click', () => {
-      chatWindow.classList.remove('active');
-    });
-
-    // Append standard message row
-    function appendMessage(text, sender) {
-      const msgRow = document.createElement('div');
-      msgRow.classList.add('chat-msg', sender);
-      msgRow.innerHTML = `<div class="msg-bubble">${text}</div>`;
-      chatBody.appendChild(msgRow);
-      chatBody.scrollTop = chatBody.scrollHeight; // Auto scroll to bottom
+  sendChatBtn.addEventListener('click', sendMessage);
+  chatInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
     }
-
-    // Process structured automated answers
-    function getBotResponse(input) {
-      const query = input.toLowerCase();
-      if (query.includes('sell') || query.includes('upload') || query.includes('advertise')) {
-        return "To list a product, click the active <strong>Upload Product</strong> button at the top of the homepage or down in the Call-To-Action panel!";
-      }
-      if (query.includes('buy') || query.includes('order') || query.includes('whatsapp')) {
-        return "Buying is easy! Just click <strong>'Order on WhatsApp'</strong> under any specific product card to text directly with the community vendor.";
-      }
-      if (query.includes('where') || query.includes('location') || query.includes('ennerdale')) {
-        return "We serve the local Ennerdale community and surrounding neighborhoods for safe, fast face-to-face deals.";
-      }
-      if (query.includes('hello') || query.includes('hi') || query.includes('hey')) {
-        return "Hello! Let me know if you are looking to buy goods or list your business offers here.";
-      }
-      return "I'm here to help! Try asking: <em>'How do I sell?'</em>, <em>'How to buy?'</em> or <em>'Where is this based?'</em>.";
-    }
-
-    // Action execution
-    function handleSendMessage() {
-      const text = chatInput.value.trim();
-      if (!text) return;
-
-      appendMessage(text, 'user');
-      chatInput.value = '';
-
-      // Simulate humanized processing interval
-      setTimeout(() => {
-        const automatedReply = getBotResponse(text);
-        appendMessage(automatedReply, 'bot');
-      }, 750);
-    }
-
-    sendChatBtn.addEventListener('click', handleSendMessage);
-    chatInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') handleSendMessage();
-    });
+  });
+    
   </script>
 </body>
 </html>

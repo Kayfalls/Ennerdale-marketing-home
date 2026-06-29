@@ -3,173 +3,945 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload Product - Admin Portal</title>
+  <title>List a Product — Ennerdale Marketing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="style.css">
+
   <style>
-    /* Custom layout additions specifically for this form page */
-    .form-container {
-      max-width: 600px;
-      margin: 60px auto;
-      padding: 30px;
-      background: white;
-      border-radius: 24px;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    /* ── Upload Page Specific Styles ── */
+    .upload-layout {
+      min-height: 100vh;
+      background: #f5f7fb;
+      padding-bottom: 60px;
     }
-    .form-group {
-      margin-bottom: 20px;
+
+    .upload-nav {
+      background: #111;
+      padding: 15px 24px;
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .upload-nav .logo {
+      color: white;
+      font-size: 16px;
+    }
+
+    .nav-back {
+      display: flex;
+      align-items: center;
       gap: 8px;
-    }
-    .form-group label {
-      font-weight: 500;
+      text-decoration: none;
+      color: rgba(255,255,255,0.7);
       font-size: 14px;
-      color: #333;
+      font-weight: 500;
+      transition: color 0.2s;
     }
-    .form-group input, .form-group select, .form-group textarea {
-      padding: 12px 16px;
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 12px;
+
+    .nav-back:hover { color: white; }
+
+    .upload-wrapper {
+      max-width: 640px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .upload-card {
+      background: white;
+      border-radius: 28px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    .upload-card-header {
+      padding: 32px 32px 24px;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .upload-card-header-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(37, 211, 102, 0.1);
+      border-radius: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #25D366;
+      font-size: 20px;
+    }
+
+    .upload-card-header h2 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .upload-card-header p {
+      font-size: 13px;
+      color: #777;
+      margin-top: 2px;
+    }
+
+    .upload-form-body {
+      padding: 28px 32px;
+    }
+
+    /* Image Upload Zone */
+    .image-upload-zone {
+      border: 2px dashed rgba(37, 211, 102, 0.4);
+      border-radius: 20px;
+      padding: 32px;
+      text-align: center;
+      background: rgba(37, 211, 102, 0.02);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .image-upload-zone:hover,
+    .image-upload-zone.dragover {
+      border-color: #25D366;
+      background: rgba(37, 211, 102, 0.06);
+    }
+
+    .image-upload-zone i {
+      font-size: 36px;
+      color: #25D366;
+      margin-bottom: 12px;
+    }
+
+    .image-upload-zone h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .image-upload-zone p {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .image-upload-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Image Previews */
+    .image-previews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .preview-item {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .preview-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .preview-item .remove-img {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 26px;
+      height: 26px;
+      background: rgba(17, 17, 17, 0.7);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 11px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .preview-item .remove-img:hover { background: #e53e3e; }
+
+    /* Form Groups */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 7px;
+    }
+
+    .form-group label .required {
+      color: #e53e3e;
+      margin-left: 3px;
+    }
+
+    .form-group label .optional {
+      color: #aaa;
+      font-weight: 400;
+      font-size: 12px;
+      margin-left: 4px;
+    }
+
+    .input-icon-wrap {
+      position: relative;
+    }
+
+    .input-icon-wrap .field-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #bbb;
+      font-size: 14px;
+      transition: color 0.25s;
+      pointer-events: none;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px 12px 42px;
+      border: 1.5px solid rgba(0, 0, 0, 0.1);
+      border-radius: 14px;
       font-family: 'Poppins', sans-serif;
       font-size: 14px;
+      color: #111;
+      background: #fafafa;
       outline: none;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
+      appearance: none;
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+      line-height: 1.6;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
       border-color: #25D366;
+      background: white;
       box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.1);
     }
-    .share-box {
-      margin-top: 25px;
-      padding: 20px;
-      background: #f5f7fb;
-      border-radius: 16px;
-      border: 1px dashed rgba(37, 211, 102, 0.5);
-      display: none; /* Hidden until form is submitted */
-      text-align: center;
+
+    .form-group:focus-within .field-icon { color: #25D366; }
+
+    .field-hint {
+      font-size: 11.5px;
+      color: #aaa;
+      margin-top: 5px;
     }
-    .share-box p {
+
+    /* Price prefix styling */
+    .price-wrap {
+      position: relative;
+    }
+
+    .price-wrap .price-prefix {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #25D366;
+      font-weight: 700;
+      font-size: 15px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .price-wrap input { padding-left: 42px; }
+
+    /* Divider */
+    .section-divider {
+      border: none;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      margin: 24px 0;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    /* Error / Success banners */
+    .alert-banner {
+      border-radius: 14px;
+      padding: 14px 18px;
       font-size: 13px;
-      color: #555;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
+      display: none;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .alert-banner.error {
+      background: #fff3f3;
+      border: 1px solid rgba(229, 62, 62, 0.2);
+      color: #c53030;
+    }
+
+    .alert-banner.success {
+      background: #f0fdf4;
+      border: 1px solid rgba(37, 211, 102, 0.3);
+      color: #15803d;
+    }
+
+    .alert-banner.visible { display: flex; }
+
+    /* Upload Progress */
+    .progress-bar-wrap {
+      background: rgba(0,0,0,0.05);
+      border-radius: 50px;
+      height: 6px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .progress-bar-wrap.visible { display: block; }
+
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #25D366, #1ebe5d);
+      border-radius: 50px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    /* Submit button */
+    .submit-btn {
+      width: 100%;
+      padding: 16px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 16px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.45);
+    }
+
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .submit-btn .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+    }
+
+    .submit-btn.loading .spinner { display: block; }
+    .submit-btn.loading .btn-label { display: none; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Success share box */
+    .share-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 32px;
+      gap: 16px;
+    }
+
+    .share-success.visible { display: flex; }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      background: rgba(37, 211, 102, 0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 32px;
+      color: #25D366;
+    }
+
+    .share-success h3 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .share-success p {
+      font-size: 14px;
+      color: #666;
+      max-width: 380px;
+      line-height: 1.6;
+    }
+
+    .share-success-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 8px;
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+    }
+
+    .btn-whatsapp:hover { background: #1ebe5d; transform: translateY(-2px); }
+
+    .btn-outline {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      background: transparent;
+      color: #111;
+      text-decoration: none;
+      border-radius: 14px;
+      font-weight: 600;
+      font-size: 14px;
+      border: 1.5px solid rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-outline:hover { border-color: #111; }
+
+    @media (max-width: 640px) {
+      .upload-form-body { padding: 20px; }
+      .upload-card-header { padding: 20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .image-previews { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
-<body>
+<body class="upload-layout">
 
-  <nav class="navbar" style="position: relative; background: #111; padding: 15px 24px;">
-    <div class="logo">
+  <!-- ── Navigation ── -->
+  <nav class="upload-nav">
+    <div class="logo" style="backdrop-filter: none; background: none; border: none; padding: 0;">
       <i class="fa-solid fa-store"></i>
-      <span>Ennerdale Marketing Portal</span>
+      <span>Ennerdale Marketing</span>
     </div>
-    <div class="nav-actions">
-      <a href="index.html" class="group-btn" style="background: rgba(255,255,255,0.1); color: white;">
-        <i class="fa-solid fa-arrow-left"></i> Back to Site
-      </a>
-    </div>
+    <a href="index.html" class="nav-back">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back to Marketplace
+    </a>
   </nav>
 
-  <div class="form-container">
-    <div class="section-title" style="margin-bottom: 25px;">
-      <i class="fa-solid fa-square-plus" style="color: #25D366;"></i>
-      <h2>Prepare Group Advertisement</h2>
-    </div>
+  <!-- ── Main Content ── -->
+  <div class="upload-wrapper">
+    <div class="upload-card">
 
-    <form id="listingForm">
-      <div class="form-group">
-        <label for="prodTitle">Product Name / Title</label>
-        <input type="text" id="prodTitle" placeholder="e.g., Nike Air Sneakers" required>
+      <!-- Header -->
+      <div class="upload-card-header">
+        <div class="upload-card-header-icon">
+          <i class="fa-solid fa-square-plus"></i>
+        </div>
+        <div>
+          <h2>List Your Product</h2>
+          <p>Upload images, add details, and share to your WhatsApp community.</p>
+        </div>
       </div>
 
-      <div class="form-group">
-        <label for="prodPrice">Price (including 'R')</label>
-        <input type="text" id="prodPrice" placeholder="e.g., R1299" required>
+      <!-- Form body (shown while uploading) -->
+      <div class="upload-form-body" id="formSection">
+
+        <!-- Alert banners -->
+        <div class="alert-banner error" id="errorBanner">
+          <i class="fa-solid fa-circle-exclamation"></i>
+          <span id="errorBannerText">Something went wrong.</span>
+        </div>
+
+        <!-- Upload progress -->
+        <div class="progress-bar-wrap" id="progressWrap">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <!-- ── Image Upload ── -->
+        <p class="section-label">Product Photos</p>
+
+        <div class="image-upload-zone" id="imageZone">
+          <input type="file" id="imageInput" accept="image/jpeg,image/jpg,image/png,image/webp" multiple>
+          <i class="fa-solid fa-cloud-arrow-up"></i>
+          <h3>Tap to add photos</h3>
+          <p>Up to 3 images · JPG, PNG, or WebP · Max 5 MB each</p>
+        </div>
+
+        <div class="image-previews" id="imagePreviews"></div>
+
+        <hr class="section-divider">
+
+        <!-- ── Product Details ── -->
+        <p class="section-label">Product Details</p>
+
+        <div class="form-group">
+          <label for="prodTitle">Product Name <span class="required">*</span></label>
+          <div class="input-icon-wrap">
+            <input type="text" id="prodTitle" placeholder="e.g., Nike Air Max 270 — Size 9">
+            <i class="fa-solid fa-tag field-icon"></i>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prodPrice">Price <span class="required">*</span></label>
+            <div class="input-icon-wrap price-wrap">
+              <span class="price-prefix">R</span>
+              <input type="text" id="prodPrice" placeholder="1 299" style="padding-left: 32px;">
+            </div>
+            <p class="field-hint">Numbers only — the R is added automatically</p>
+          </div>
+
+          <div class="form-group">
+            <label for="prodCategory">Category <span class="required">*</span></label>
+            <div class="input-icon-wrap">
+              <select id="prodCategory">
+                <option value="">Select category...</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Food & Catering">Food & Catering</option>
+                <option value="Cars & Vehicles">Cars & Vehicles</option>
+                <option value="Property">Property</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Books">Books</option>
+                <option value="Pets">Pets</option>
+                <option value="Services">Services</option>
+                <option value="Other">Other</option>
+              </select>
+              <i class="fa-solid fa-layer-group field-icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="prodDesc">Description <span class="required">*</span></label>
+          <div class="input-icon-wrap">
+            <textarea id="prodDesc" placeholder="Condition, size, colour, reason for selling, pickup/delivery info..."></textarea>
+            <i class="fa-solid fa-align-left field-icon" style="top: 16px; transform: none;"></i>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <!-- ── Contact ── -->
+        <p class="section-label">Your Contact Details</p>
+
+        <div class="form-group">
+          <label for="sellerWhatsapp">
+            Your WhatsApp Number
+            <span class="optional">(optional — buyers will contact this number)</span>
+          </label>
+          <div class="input-icon-wrap">
+            <input type="tel" id="sellerWhatsapp" placeholder="e.g., 0821234567">
+            <i class="fa-brands fa-whatsapp field-icon"></i>
+          </div>
+          <p class="field-hint">Leave blank to use the group contact number</p>
+        </div>
+
+        <!-- ── Submit ── -->
+        <button class="submit-btn" id="submitBtn" type="button">
+          <div class="spinner"></div>
+          <span class="btn-label">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            List My Product
+          </span>
+        </button>
+
+      </div><!-- /form-section -->
+
+      <!-- ── Success State (replaces form after submit) ── -->
+      <div class="share-success" id="successSection">
+        <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+        <h3>🎉 Your listing is live!</h3>
+        <p>Your product has been published to the marketplace. Share the link below directly to your WhatsApp community group to get orders fast.</p>
+        <div class="share-success-btns">
+          <a href="#" id="whatsappShareBtn" target="_blank" class="btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i>
+            Share to WhatsApp Group
+          </a>
+          <button class="btn-outline" id="listAnotherBtn">
+            <i class="fa-solid fa-plus"></i>
+            List Another
+          </button>
+        </div>
+        <a href="index.html" style="font-size: 13px; color: #aaa; text-decoration: none; margin-top: 8px;">
+          <i class="fa-solid fa-store"></i> View on Marketplace
+        </a>
       </div>
 
-      <div class="form-group">
-        <label for="prodCategory">Category</label>
-        <select id="prodCategory" required>
-          <option value="Fashion">Fashion</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Furniture">Furniture</option>
-          <option value="Food & Catering">Food & Catering</option>
-          <option value="Services">Services</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
+    </div><!-- /upload-card -->
+  </div><!-- /upload-wrapper -->
 
-      <div class="form-group">
-        <label for="prodDesc">Short Description</label>
-        <textarea id="prodDesc" rows="3" placeholder="Briefly describe item condition or specifics..." required></textarea>
-      </div>
 
-      <div class="form-group">
-        <label for="prodId">Website Item ID Anchor</label>
-        <input type="text" id="prodId" placeholder="e.g., nike-air-sneakers (matching the HTML card id)" required>
-      </div>
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
 
-      <button type="submit" class="modal-send-btn" style="width: 100%; justify-content: center; display: flex; gap: 10px; align-items: center;">
-        <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Broadcast Link
-      </button>
-    </form>
+    // ── CONFIGURATION ──────────────────────────────────────
+    const SUPABASE_URL    = 'https://lvdvjymuvcpvkbdgikkc.supabase.co'
+    const SUPABASE_KEY    = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2ZHZqeW11dmNwdmtiZGdpa2tjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODIxOTI5MjMsImV4cCI6MjA5Nzc2ODkyM30.SChOKdMbWIP27_n-diBDioXKQh2whtdCbbS_fHmW2_U'
+    const STORAGE_BUCKET  = 'product-images'
+    const DEFAULT_WA_NUMBER = '27123456789' // Fallback group contact number
 
-    <div id="shareBox" class="share-box">
-      <h3>🎉 Link Generated Successfully!</h3>
-      <p>Click the button below. It will open WhatsApp with your formatted message text. You just have to select your Ennerdale Group and click send!</p>
-      
-      <a id="whatsappBroadcastLink" href="#" target="_blank" class="modal-send-btn" style="display: inline-flex; text-decoration: none; padding: 12px 24px; gap: 8px;">
-        <i class="fa-brands fa-whatsapp"></i> Share to WhatsApp Group
-      </a>
-    </div>
-  </div>
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 
-  <script>
-    document.getElementById('listingForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Stop page refresh
+    // ── AUTH GUARD ──────────────────────────────────────────
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) {
+      window.location.href = 'login.html'
+    }
 
-      // 1. Gather inputs
-      const title = document.getElementById('prodTitle').value.trim();
-      const price = document.getElementById('prodPrice').value.trim();
-      const category = document.getElementById('prodCategory').value;
-      const desc = document.getElementById('prodDesc').value.trim();
-      const itemId = document.getElementById('prodId').value.trim().toLowerCase().replace(/\s+/g, '-');
+    // ── DOM REFS ────────────────────────────────────────────
+    const imageInput    = document.getElementById('imageInput')
+    const imageZone     = document.getElementById('imageZone')
+    const imagePreviews = document.getElementById('imagePreviews')
+    const submitBtn     = document.getElementById('submitBtn')
+    const errorBanner   = document.getElementById('errorBanner')
+    const errorBannerTx = document.getElementById('errorBannerText')
+    const progressWrap  = document.getElementById('progressWrap')
+    const progressBar   = document.getElementById('progressBar')
+    const formSection   = document.getElementById('formSection')
+    const successSection = document.getElementById('successSection')
+    const whatsappShareBtn = document.getElementById('whatsappShareBtn')
+    const listAnotherBtn   = document.getElementById('listAnotherBtn')
 
-      // 2. Build the exact website URL pointing to this specific product element anchor
-      // Uses your live web domain automatically or defaults to current location folder setup
-      const baseWebUrl = window.location.origin + window.location.pathname.replace('upload.html', 'index.html');
-      const directProductLink = `${baseWebUrl}#${itemId}`;
+    // ── STATE ───────────────────────────────────────────────
+    let selectedFiles = []
 
-      // 3. Draft the beautiful WhatsApp broadcast layout template using Markdown formatting
-      const textMessage = 
-        `📢 *NEW LOCAL LISTING AVAILABLE* 📢\n\n` +
-        `📦 *Product:* ${title}\n` +
-        `💰 *Price:* ${price}\n` +
-        `🗂️ *Category:* ${category}\n` +
-        `📍 *Location:* Ennerdale Community\n\n` +
-        `📝 *Description:* _${desc}_\n\n` +
-        `👇 *View Photos & Order Directly on Website Here:* 👇\n` +
-        `${directProductLink}`;
+    // ── HELPERS ─────────────────────────────────────────────
+    function showError(msg) {
+      errorBannerTx.textContent = msg
+      errorBanner.classList.add('visible')
+      errorBanner.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+    }
 
-      // 4. URL encode the string payload safely for web browsing
-      const encodedMessage = encodeURIComponent(textMessage);
-      
-      // Using wa.me/ without a number opens the WhatsApp contact/group picker interface cleanly
-      const finalWhatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+    function hideError() { errorBanner.classList.remove('visible') }
 
-      // 5. Present the link block to the user
-      const shareBox = document.getElementById('shareBox');
-      const broadcastAnchor = document.getElementById('whatsappBroadcastLink');
-      
-      broadcastAnchor.href = finalWhatsappUrl;
-      shareBox.style.display = 'block';
-      
-      // Auto-smooth scroll view downward slightly to focus on the new button
-      shareBox.scrollIntoView({ behavior: 'smooth' });
-    });
+    function setProgress(pct) {
+      progressWrap.classList.add('visible')
+      progressBar.style.width = pct + '%'
+    }
+
+    function resetProgress() {
+      progressWrap.classList.remove('visible')
+      progressBar.style.width = '0%'
+    }
+
+    function setLoading(loading) {
+      submitBtn.disabled = loading
+      submitBtn.classList.toggle('loading', loading)
+    }
+
+    function formatPrice(raw) {
+      // Strip leading 'R' if user typed it anyway, clean non-digits
+      const cleaned = raw.replace(/[^0-9\s,]/g, '').trim()
+      return 'R' + (cleaned || '0')
+    }
+
+    function formatWhatsApp(number) {
+      // Convert SA numbers to international format
+      const digits = number.replace(/\D/g, '')
+      if (digits.startsWith('0')) return '27' + digits.slice(1)
+      if (digits.startsWith('27')) return digits
+      return digits
+    }
+
+    // ── IMAGE SELECTION & PREVIEW ────────────────────────────
+    function renderPreviews() {
+      imagePreviews.innerHTML = ''
+      selectedFiles.forEach((file, idx) => {
+        const url = URL.createObjectURL(file)
+        const item = document.createElement('div')
+        item.className = 'preview-item'
+        item.innerHTML = `
+          <img src="${url}" alt="Preview ${idx + 1}">
+          <button class="remove-img" data-index="${idx}" aria-label="Remove image">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        `
+        imagePreviews.appendChild(item)
+      })
+    }
+
+    imageInput.addEventListener('change', () => {
+      const incoming = Array.from(imageInput.files)
+      // Max 3 images total
+      const slots = 3 - selectedFiles.length
+      const toAdd  = incoming.slice(0, slots)
+
+      for (const file of toAdd) {
+        if (file.size > 5 * 1024 * 1024) {
+          showError(`"${file.name}" is too large. Max size is 5 MB per image.`)
+          return
+        }
+        selectedFiles.push(file)
+      }
+      renderPreviews()
+      // If zone is full, hide it
+      if (selectedFiles.length >= 3) imageZone.style.display = 'none'
+      imageInput.value = '' // Reset so same file can be re-added after removal
+    })
+
+    // Remove image on click
+    imagePreviews.addEventListener('click', e => {
+      const btn = e.target.closest('.remove-img')
+      if (!btn) return
+      const idx = parseInt(btn.getAttribute('data-index'))
+      URL.revokeObjectURL(imagePreviews.querySelectorAll('img')[idx]?.src)
+      selectedFiles.splice(idx, 1)
+      renderPreviews()
+      imageZone.style.display = ''
+    })
+
+    // Drag & drop support
+    imageZone.addEventListener('dragover', e => {
+      e.preventDefault()
+      imageZone.classList.add('dragover')
+    })
+    imageZone.addEventListener('dragleave', () => imageZone.classList.remove('dragover'))
+    imageZone.addEventListener('drop', e => {
+      e.preventDefault()
+      imageZone.classList.remove('dragover')
+      imageInput.files = e.dataTransfer.files
+      imageInput.dispatchEvent(new Event('change'))
+    })
+
+    // ── VALIDATE FORM ────────────────────────────────────────
+    function validate() {
+      const title    = document.getElementById('prodTitle').value.trim()
+      const price    = document.getElementById('prodPrice').value.trim()
+      const category = document.getElementById('prodCategory').value
+      const desc     = document.getElementById('prodDesc').value.trim()
+
+      if (selectedFiles.length === 0) {
+        showError('Please add at least one product photo.')
+        return false
+      }
+      if (!title) {
+        showError('Product name is required.')
+        return false
+      }
+      if (!price || isNaN(price.replace(/[\sR,]/g, ''))) {
+        showError('Please enter a valid price (numbers only).')
+        return false
+      }
+      if (!category) {
+        showError('Please select a product category.')
+        return false
+      }
+      if (desc.length < 10) {
+        showError('Please write a short description (at least 10 characters).')
+        return false
+      }
+      return true
+    }
+
+    // ── UPLOAD IMAGE TO SUPABASE STORAGE ────────────────────
+    async function uploadImage(file, userId, listingId, index) {
+      const ext      = file.name.split('.').pop().toLowerCase()
+      const fileName = `${userId}/${listingId}-${index}.${ext}`
+
+      const { error } = await supabase.storage
+        .from(STORAGE_BUCKET)
+        .upload(fileName, file, { cacheControl: '3600', upsert: true })
+
+      if (error) throw new Error(`Image upload failed: ${error.message}`)
+
+      const { data } = supabase.storage
+        .from(STORAGE_BUCKET)
+        .getPublicUrl(fileName)
+
+      return data.publicUrl
+    }
+
+    // ── GENERATE SMART SHARE MESSAGE ─────────────────────────
+    function buildShareMessage(listing, deepLink) {
+      const hooks = {
+        'Fashion':        '🔥 Upgrade your wardrobe! Clean, premium style available now.',
+        'Electronics':    '⚡ Great tech deal! Perfect working condition, ready for collection.',
+        'Furniture':      '🏡 Level up your space. Excellent condition and priced to move.',
+        'Food & Catering':'🍽️ Freshly made and ready to enjoy! Support local talent.',
+        'Cars & Vehicles':'🚗 Reliable local deal. Come inspect before you commit.',
+        'Property':       '🏠 Property opportunity right here in Ennerdale. View details below.',
+        'Gaming':         '🎮 Great gaming deal! Everything included, ready to play.',
+        'Fitness':        '💪 Get fit for less! Quality equipment available locally.',
+        'Services':       '💼 Reliable, professional service operating in Ennerdale.',
+        'Pets':           '🐾 Available for local animal lovers. Healthy and friendly.',
+      }
+      const hook = hooks[listing.category] || '✅ Don't miss out on this great community deal!'
+
+      return (
+        `📢 *JUST LISTED IN ENNERDALE* 📢\n\n` +
+        `📦 *Product:* ${listing.title}\n` +
+        `💰 *Price:* ${listing.price}\n` +
+        `🗂️ *Category:* ${listing.category}\n\n` +
+        `${hook}\n\n` +
+        `📝 *Details:* _"${listing.description}"_\n\n` +
+        `👇 *View Photos & Contact Seller:*\n` +
+        `${deepLink}`
+      )
+    }
+
+    // ── SUBMIT ───────────────────────────────────────────────
+    submitBtn.addEventListener('click', async () => {
+      hideError()
+      if (!validate()) return
+
+      setLoading(true)
+      setProgress(5)
+
+      try {
+        const title     = document.getElementById('prodTitle').value.trim()
+        const rawPrice  = document.getElementById('prodPrice').value.trim()
+        const category  = document.getElementById('prodCategory').value
+        const desc      = document.getElementById('prodDesc').value.trim()
+        const rawWA     = document.getElementById('sellerWhatsapp').value.trim()
+
+        const price         = formatPrice(rawPrice)
+        const sellerWA      = rawWA ? formatWhatsApp(rawWA) : null
+
+        // Step 1: Insert listing to get a DB-generated UUID
+        setProgress(20)
+        const { data: insertedRows, error: insertError } = await supabase
+          .from('listings')
+          .insert([{
+            user_id:          user.id,
+            title,
+            price,
+            category,
+            description:      desc,
+            seller_whatsapp:  sellerWA,
+            is_active:        true,
+          }])
+          .select()
+
+        if (insertError) throw new Error(`Listing failed: ${insertError.message}`)
+        const listing = insertedRows[0]
+
+        // Step 2: Upload images, track progress
+        setProgress(35)
+        const imageUrls = []
+        for (let i = 0; i < selectedFiles.length; i++) {
+          const url = await uploadImage(selectedFiles[i], user.id, listing.id, i)
+          imageUrls.push(url)
+          setProgress(35 + ((i + 1) / selectedFiles.length) * 45)
+        }
+
+        // Step 3: Update listing with primary image URL
+        setProgress(85)
+        const { error: updateError } = await supabase
+          .from('listings')
+          .update({ image_url: imageUrls[0] })
+          .eq('id', listing.id)
+
+        if (updateError) throw new Error(`Image link failed: ${updateError.message}`)
+
+        setProgress(100)
+
+        // Step 4: Build deep link + share message
+        const baseUrl   = window.location.origin + window.location.pathname.replace('upload.html', 'index.html')
+        const deepLink  = `${baseUrl}#${listing.id}`
+        const shareText = buildShareMessage({ title, price, category, description: desc }, deepLink)
+        const waNumber  = sellerWA || DEFAULT_WA_NUMBER
+
+        whatsappShareBtn.href = `https://wa.me/?text=${encodeURIComponent(shareText)}`
+
+        // Step 5: Show success
+        setTimeout(() => {
+          formSection.style.display = 'none'
+          successSection.classList.add('visible')
+          resetProgress()
+        }, 600)
+
+      } catch (err) {
+        console.error('[Upload Error]', err)
+        showError(err.message)
+        setLoading(false)
+        resetProgress()
+      }
+    })
+
+    // ── LIST ANOTHER ─────────────────────────────────────────
+    listAnotherBtn.addEventListener('click', () => {
+      // Reset all state
+      selectedFiles = []
+      imagePreviews.innerHTML = ''
+      document.getElementById('prodTitle').value = ''
+      document.getElementById('prodPrice').value = ''
+      document.getElementById('prodCategory').value = ''
+      document.getElementById('prodDesc').value = ''
+      document.getElementById('sellerWhatsapp').value = ''
+      imageZone.style.display = ''
+      successSection.classList.remove('visible')
+      formSection.style.display = ''
+      setLoading(false)
+      hideError()
+    })
+
   </script>
+
 </body>
 </html>
